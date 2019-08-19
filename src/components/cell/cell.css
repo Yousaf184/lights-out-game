@@ -1,0 +1,11 @@
+.cell {
+    width: 60px;
+    height: 55px;
+    background-color: #eee;
+    transition: background-color 0.4s ease;
+    border-radius: 3px;
+}
+
+.light-on {
+    background-color: rgb(11, 170, 206);
+}

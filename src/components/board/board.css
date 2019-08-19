@@ -1,0 +1,98 @@
+.board {
+    margin-top: 50px;
+}
+
+p.won-text {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.play-again-btn,
+.restart-btn {
+    width: 150px;
+    background-color: #1041FF;
+}
+
+.restart-btn {
+    margin-top: 40px;
+}
+
+.instructions-btn {
+  margin-top: 15px;
+  width: 120px;
+  background-color: #1041FF;
+}
+
+table td {
+    padding: 0;
+}
+
+table {
+    background-color: #222;
+    box-shadow: 0 0 50px rgba(214, 214, 214, 0.5);
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    margin: 5px auto 0;
+}
+
+.board h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 3.7rem;
+}
+
+/* neon text styles, imported from codepen of THomas Trinca */
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+.neon-orange {
+  font-family: neon;
+  color: #FB4264;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #F40A35;
+  animation: neonOrange 1s ease infinite;
+  -moz-animation: neonOrange 1s ease infinite;
+  -webkit-animation: neonOrange 1s ease infinite;
+}
+
+.neon-blue {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #2356FF;
+  animation: neonBlue 2s linear infinite;
+  -moz-animation: neonBlue 2s linear infinite;
+  -webkit-animation: neonBlue 2s linear infinite;
+  -o-animation: neonBlue 2s linear infinite;
+}
+
+@keyframes neonOrange {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+@keyframes neonBlue {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}

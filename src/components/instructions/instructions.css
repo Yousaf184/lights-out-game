@@ -1,0 +1,33 @@
+.instructions-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    background-color: rgb(2, 77, 138);
+    color: #fff;
+    padding: 20px 30px;
+    width: 60%;
+    border-radius: 5px;
+    animation: slideDown 0.7s ease 0s 1 normal;
+}
+
+li {
+    font-size: 0.9rem;
+}
+
+button {
+    width: 100px;
+    background-color: #1041FF;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-120px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
