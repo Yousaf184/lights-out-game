@@ -53,15 +53,29 @@ table {
     font-size: 3.7rem;
 }
 
+@media (max-width: 740px) {
+  .game-btns-container {
+      width: 60%;
+  }
+}
+
 @media (max-width: 500px) {
   .board h1 {
     font-size: 3.2rem;
+  }
+
+  .game-btns-container {
+      width: 80%;
   }
 }
 
 @media (max-width: 400px) {
   .board h1 {
     font-size: 2.7rem;
+  }
+
+  .game-btns-container {
+      width: 100%;
   }
 }
 
