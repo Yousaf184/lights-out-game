@@ -9,7 +9,9 @@ class Board extends Component {
         this.state = {
             board: this.initBoard(),
             hasWon: false,
-            instructionsShown: false
+            instructionsShown: false,
+            lifeLineUsed: false,
+            lifeLineActive: false
         }
     }
 
@@ -90,33 +92,59 @@ class Board extends Component {
         // toggle cell light
         boardCopy[cellX][cellY] = this.state.board[cellX][cellY] === 1 ? 0 : 1;
 
-        // toggle light of neighboring cells
-        // upper cell
-        if (cellX - 1 >= 0) {
-            boardCopy[cellX - 1][cellY] = boardCopy[cellX - 1][cellY] === 1 ? 0 : 1;
+        // toggle neightborijng cells only if life lijne is not active
+        if (!this.state.lifeLineActive) {
+            // upper cell
+            if (cellX - 1 >= 0) {
+                boardCopy[cellX - 1][cellY] = boardCopy[cellX - 1][cellY] === 1 ? 0 : 1;
+            }
+            // bottom cell
+            if (cellX + 1 < this.props.numRows) {
+                boardCopy[cellX + 1][cellY] = boardCopy[cellX + 1][cellY] === 1 ? 0 : 1;
+            }
+            // right cell
+            if (cellY + 1 < this.props.numCols) {
+                boardCopy[cellX][cellY + 1] = boardCopy[cellX][cellY + 1] === 1 ? 0 : 1;
+            }
+            // left cell
+            if (cellY - 1 >= 0) {
+                boardCopy[cellX][cellY - 1] = boardCopy[cellX][cellY - 1] === 1 ? 0 : 1;
+            }
         }
-        // bottom cell
-        if (cellX + 1 < this.props.numRows) {
-            boardCopy[cellX + 1][cellY] = boardCopy[cellX + 1][cellY] === 1 ? 0 : 1;
-        }
-        // right cell
-        if (cellY + 1 < this.props.numCols) {
-            boardCopy[cellX][cellY + 1] = boardCopy[cellX][cellY + 1] === 1 ? 0 : 1;
-        }
-        // left cell
-        if (cellY - 1 >= 0) {
-            boardCopy[cellX][cellY - 1] = boardCopy[cellX][cellY - 1] === 1 ? 0 : 1;
+
+        // if life line is active, disable it after cell was clicked
+        if (this.state.lifeLineActive) {
+            this.setState({ lifeLineActive: false });
         }
 
         this.setState({ board: boardCopy });
+
+        this.checkForVictory();
     };
 
     restartGame = () => {
-        this.setState({ hasWon: false, board: this.initBoard() });
+        this.setState({
+            hasWon: false,
+            board: this.initBoard(),
+            lifeLineUsed: false,
+            lifeLineActive: false
+        });
+    };
+
+    checkForVictory = () => {
+        const hasWon = this.state.board.every(row => row.every(num => num === 0));
+
+        if (hasWon) {
+            this.setState({ hasWon: true });
+        }
     };
 
     toggleInstructions = () => {
         this.setState({ instructionsShown: !this.state.instructionsShown });
+    };
+
+    useLifeLine = () => {
+        this.setState({ lifeLineUsed: true, lifeLineActive: true });
     };
 
     render() {
@@ -141,9 +169,16 @@ class Board extends Component {
                 <div className="board-container">
                     { this.drawBoard() }
                 </div>
-                <button className="restart-btn" onClick={this.restartGame}>
-                    Restart
-                </button>
+                <div className="game-btns-container">
+                    <button className="restart-btn" onClick={this.restartGame}>
+                        Restart
+                    </button>
+                    <button className="lifeline-btn"
+                        onClick={this.useLifeLine}
+                        disabled={this.state.lifeLineUsed}>
+                        Use Lifeline
+                    </button>
+                </div>
                 <button className="instructions-btn" onClick={this.toggleInstructions}>
                     Instructions
                 </button>

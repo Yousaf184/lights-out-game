@@ -11,10 +11,26 @@
 .modal {
     background-color: rgb(2, 77, 138);
     color: #fff;
-    padding: 20px 30px;
+    padding: 15px 25px;
     width: 60%;
     border-radius: 5px;
     animation: slideDown 0.7s ease 0s 1 normal;
+}
+
+@media (max-width: 460px) {
+    .modal h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal h1 {
+        font-size: 1.4rem;
+    }
+}
+
+ul {
+    padding-left: 10px;
 }
 
 li {

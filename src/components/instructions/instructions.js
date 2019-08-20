@@ -20,6 +20,11 @@ function GameInstructions(props) {
                             Clicking on a cell will toggle its light and the light of its
                             neighbouring cells
                         </li>
+                        <li>
+                            You also have one life line available. When used,
+                            neighbouring cells of the clicked cell won't be toggled
+                            You can only use it once, use it wisely
+                        </li>
                     </ul>
                     <button onClick={props.dismissInstructions}>Dismiss</button>
                 </div>

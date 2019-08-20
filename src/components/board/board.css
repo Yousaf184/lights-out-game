@@ -1,5 +1,5 @@
 .board {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 p.won-text {
@@ -7,14 +7,23 @@ p.won-text {
     margin-bottom: 30px;
 }
 
+.game-btns-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    margin: 33px auto 0;
+}
+
 .play-again-btn,
-.restart-btn {
-    width: 150px;
+.restart-btn,
+.lifeline-btn {
+    width: 130px;
     background-color: #1041FF;
 }
 
-.restart-btn {
-    margin-top: 40px;
+button.lifeline-btn:disabled {
+    background-color: rgb(88, 88, 88);
 }
 
 .instructions-btn {
@@ -40,7 +49,7 @@ table {
 
 .board h1 {
     text-align: center;
-    margin-bottom: 25px;
+    margin: 15px 5px 25px;
     font-size: 3.7rem;
 }
 
